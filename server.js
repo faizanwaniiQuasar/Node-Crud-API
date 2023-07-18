@@ -7,7 +7,7 @@ const Product = require("./Modal/productModel");
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
 
-const port = 3000;
+const PORT = process.env.PORT;
 
 const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.PASSWORD);
 
@@ -19,8 +19,8 @@ mongoose
   .connect(DB)
   .then(() => {
     console.log(`db connected`);
-    app.listen(port, () => {
-      console.log(`app is running on port ${port}`);
+    app.listen(PORT, () => {
+      console.log(`app is running on port ${PORT}`);
     });
   })
   .catch((error) => {
