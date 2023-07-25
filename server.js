@@ -2,19 +2,19 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const Product = require("./models/productModel");
+// const Product = require("./models/productModel");
 const ProductRoutes = require("./routes/productRoutes");
 
 dotenv.config({ path: "./config.env" });
 app.use(express.json());
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 const DB = process.env.DATABASE.replace("<PASSWORD>", process.env.PASSWORD);
 
-app.get("/", (req, res) => {
-  res.send("home page");
-});
+// app.get("/", (req, res) => {
+//   res.send("home page");
+// });
 
 mongoose
   .connect(DB)
